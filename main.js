@@ -29,7 +29,16 @@ function callback(error, response, body) {
 
         console.log(JSON.stringify(body, null, 10));
         console.log(randomWord);
+        const obj = JSON.parse(body)
+
+        for (let y = 0; y < obj.files.length; y++) {
+            for (let i = 0; i < obj.files[y].keywords.length; i++) {
+                console.log(obj.files[y].keywords[i].name)
+            }
+            console.log("-----------\n")
+        }
     }
 }
 
 request(options, callback);
+
