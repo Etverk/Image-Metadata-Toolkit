@@ -20,7 +20,7 @@ var options = {
 
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
-        fs.writeFile("./test.txt", body + "\n\n", (err) => {
+        /*fs.writeFile("./test.txt", body + "\n\n", (err) => {
             if (err) {
                 console.error(err);
             return;
@@ -29,14 +29,36 @@ function callback(error, response, body) {
 
         console.log(JSON.stringify(body, null, 10));
         console.log(randomWord);
-        const obj = JSON.parse(body)
+        
 
-        for (let y = 0; y < obj.files.length; y++) {
+        /*for (let y = 0; y < obj.files.length; y++) {
             for (let i = 0; i < obj.files[y].keywords.length; i++) {
                 console.log(obj.files[y].keywords[i].name)
             }
-            console.log("-----------\n")
+            console.log("-----------\n") */
+
+        const obj = JSON.parse(body)
+
+        console.log(obj.files[0].keywords)
+
+        for (let i = 0; i < obj.files[0].keywords.length; i++) {
+            fs.appendFileSync("./test.txt", obj.files[0].keywords[i].name + " ", (err) => {
+                if (err) {
+                    console.error(err);
+                return;
+                  }
+            })
+            
+            console.log(obj.files[0].keywords[i].name, i)
         }
+
+        fs.appendFileSync("./test.txt", " realistic high quality detailed --v 4 --ar 3:2 ", (err) => {
+            if (err) {
+                console.error(err);
+            return;
+              }
+        })
+        
     }
 }
 
