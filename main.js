@@ -3,7 +3,12 @@ function program() {
     var randomWords = require('random-words');
     var request = require('request');
 
-    var apiKey = fs.readFileSync("./info.txt",'utf8')
+    function getFirstLine(filePath) {
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        return (fileContent.match(/(^.*)/) || [])[1] || '';
+    } 
+
+    var apiKey = getFirstLine("./info.txt")
 
     var headers = {
         'x-api-key': apiKey,
