@@ -32,7 +32,6 @@ EXIF_TAGS = [
 ]
 
 for img in imageList:
-    print(img)
     image_path = f"{imageFolder}\{img}"
     with open(image_path, "rb") as input_file:
         img = ExifImage(input_file)
@@ -41,3 +40,33 @@ for img in imageList:
         for tag in EXIF_TAGS:
             value = img.get(tag)
             print(f"{tag}: {value}")
+            
+            
+            
+            
+PILLOW_TAGS = [
+    315,     # Artist Name
+    33432,   # Copyright Message
+]
+
+EXIF_TAGS = [
+    "artist",
+    "copyright",
+]
+
+VALUES = [
+    "Matthew Gove",    # Artist Name
+    "Copyright 2022 Matthew Gove. All Rights Reserved."  # Copyright Message
+]
+
+
+for img in imageList:
+    image_path = f"{imageFolder}\{img}"
+    pillow_image = PillowImage.open(image_path)
+    img_exif = pillow_image.getexif()
+
+    for tag, value in zip(PILLOW_TAGS, VALUES):
+        img_exif[tag] = value
+
+    output_file = img
+    pillow_image.save(output_file, exif=img_exif)
