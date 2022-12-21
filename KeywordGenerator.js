@@ -25,7 +25,6 @@ function program() {
         if (!error && response.statusCode == 200) {
             
             const obj = JSON.parse(body)
-            console.log(obj.files)
             
             for (let y = 0; y < obj.files.length; y++) {
 
@@ -69,7 +68,6 @@ function program() {
                         }
                     })
                     
-                    console.log(obj.files[y].keywords[i].name, i)
                 }
 
                 fs.appendFileSync("./test.txt", "realistic high quality detailed --v 4 --ar 3:2\r\n", (err) => {
@@ -88,7 +86,7 @@ function program() {
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 //async function load () { 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 10000; i++) {
     program();
 
     //await timer(3000); 
