@@ -16,8 +16,6 @@ with open('image2.png','rb') as image:
     data = {'data': image}
     keywords = requests.post('https://api.everypixel.com/v1/keywords', files=data, auth=(client_id, client_secret)).json()
 
-
-
 for i in keywords["keywords"]:
     print(i["keyword"])
 print(len(keywords["keywords"]))

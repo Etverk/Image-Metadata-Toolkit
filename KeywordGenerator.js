@@ -85,7 +85,6 @@ function program() {
     request(options, callback);
 }
 
-
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 //async function load () { 

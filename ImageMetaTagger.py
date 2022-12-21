@@ -40,10 +40,7 @@ for img in imageList:
         for tag in EXIF_TAGS:
             value = img.get(tag)
             print(f"{tag}: {value}")
-            
-            
-            
-            
+                 
 PILLOW_TAGS = [
     315,     # Artist Name
     33432,   # Copyright Message
@@ -58,7 +55,6 @@ VALUES = [
     "Matthew Gove",    # Artist Name
     "Copyright 2022 Matthew Gove. All Rights Reserved."  # Copyright Message
 ]
-
 
 for img in imageList:
     image_path = f"{imageFolder}\{img}"
