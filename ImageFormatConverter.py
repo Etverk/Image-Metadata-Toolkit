@@ -4,7 +4,7 @@ import os
 inputFormat = "png"
 outputFormat = "jpg"
 
-file = open('./info.txt')
+file = open('./Data.txt')
 content = file.readlines()
 inputPath = content[3].replace("\n", "")
 outputPath = content[4].replace("\n", "")

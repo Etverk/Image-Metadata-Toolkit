@@ -2,6 +2,7 @@ from exif import Image as ExifImage
 from PIL import Image as PillowImage
 from PIL import ExifTags
 import os
+import numpy
 
 # https://blog.matthewgove.com/2022/05/13/how-to-bulk-edit-your-photos-exif-data-with-10-lines-of-python/
 
@@ -9,6 +10,7 @@ imageList = []
 file = open('./Data.txt')
 content = file.readlines()
 imageFolder = content[5].replace("\n", "")
+exportFolder = content[6].replace("\n", "")
 
 for file in os.listdir(imageFolder): 
     imageList.append(file)
@@ -65,4 +67,5 @@ for img in imageList:
         img_exif[tag] = value
 
     output_file = img
-    pillow_image.save(output_file, exif=img_exif)
+    print(output_file, imageFolder)
+    pillow_image.save(exportFolder + "\\" + output_file, exif=img_exif)
