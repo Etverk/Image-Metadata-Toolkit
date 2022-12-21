@@ -6,7 +6,7 @@ import os
 # https://blog.matthewgove.com/2022/05/13/how-to-bulk-edit-your-photos-exif-data-with-10-lines-of-python/
 
 imageList = []
-file = open('./info.txt')
+file = open('./Data.txt')
 content = file.readlines()
 imageFolder = content[5].replace("\n", "")
 

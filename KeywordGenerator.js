@@ -8,7 +8,7 @@ function program() {
         return (fileContent.match(/(^.*)/) || [])[1] || '';
     } 
 
-    var apiKey = getFirstLine("./info.txt")
+    var apiKey = getFirstLine("./Data.txt")
 
     var headers = {
         'x-api-key': apiKey,
@@ -28,7 +28,7 @@ function program() {
             
             for (let y = 0; y < obj.files.length; y++) {
 
-                fs.appendFileSync("./test.txt", "Generative AI; Generative; AI; ", (err) => {
+                fs.appendFileSync("./KeywordList.txt", "Generative AI; Generative; AI; ", (err) => {
                     if (err) {
                         console.error(err);
                     return;
@@ -36,7 +36,7 @@ function program() {
                 })
 
                 for (let i = 0; i < obj.files[y].keywords.length; i++) {
-                    fs.appendFileSync("./test.txt", obj.files[y].keywords[i].name + "; ", (err) => {
+                    fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + "; ", (err) => {
                         if (err) {
                             console.error(err);
                         return;
@@ -46,14 +46,14 @@ function program() {
                     console.log(obj.files[y].keywords[i].name, i)
                 }
 
-                fs.appendFileSync("./test.txt", "\r\n", (err) => {
+                fs.appendFileSync("./KeywordList.txt", "\r\n", (err) => {
                     if (err) {
                         console.error(err);
                     return;
                     }
                 })
 
-                fs.appendFileSync("./test.txt", "/imagine prompt: ", (err) => {
+                fs.appendFileSync("./KeywordList.txt", "/imagine prompt: ", (err) => {
                     if (err) {
                         console.error(err);
                     return;
@@ -61,7 +61,7 @@ function program() {
                 })
                 
                 for (let i = 0; i < obj.files[y].keywords.length; i++) {
-                    fs.appendFileSync("./test.txt", obj.files[y].keywords[i].name + " ", (err) => {
+                    fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + " ", (err) => {
                         if (err) {
                             console.error(err);
                         return;
@@ -70,7 +70,7 @@ function program() {
                     
                 }
 
-                fs.appendFileSync("./test.txt", "realistic high quality detailed --v 4 --ar 3:2\r\n", (err) => {
+                fs.appendFileSync("./KeywordList.txt", "realistic high quality detailed --v 4 --ar 3:2\r\n", (err) => {
                     if (err) {
                         console.error(err);
                     return;

@@ -1,6 +1,6 @@
 import requests
 
-file = open('./info.txt')
+file = open('./Data.txt')
 content = file.readlines()
 client_secret = content[1]
 client_secret = client_secret.replace(" ", "")
