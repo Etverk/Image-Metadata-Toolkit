@@ -46,16 +46,22 @@ for img in imageList:
 PILLOW_TAGS = [
     315,     # Artist Name
     33432,   # Copyright Message
+    40094,
 ]
 
 EXIF_TAGS = [
     "artist",
     "copyright",
+    "XPKeywords",
 ]
+
+valueString = "test; test2; test3; test4; test5; test6; test7"
+valueString = valueString.encode(encoding='UTF-16',errors='strict')
 
 VALUES = [
     "Matthew Gove",    # Artist Name
-    "Copyright 2022 Matthew Gove. All Rights Reserved."  # Copyright Message
+    "Copyright 2022 Matthew Gove. All Rights Reserved.",  # Copyright Message
+    valueString
 ]
 
 for img in imageList:
