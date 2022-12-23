@@ -4,7 +4,14 @@ from PIL import ExifTags
 import os
 import numpy
 
-# https://blog.matthewgove.com/2022/05/13/how-to-bulk-edit-your-photos-exif-data-with-10-lines-of-python/
+
+file = open('./FinalKeywordList.txt')
+content = file.readlines()
+
+keywordsDictionary = {}
+for i in range(len(content)):
+    keywordsDictionary[f"keywords{i + 1}"]= content[i].replace("\n", "")
+print(keywordsDictionary["keywords1"])
 
 imageList = []
 file = open('./Data.txt')
@@ -14,64 +21,21 @@ exportFolder = content[6].replace("\n", "")
 
 for file in os.listdir(imageFolder): 
     imageList.append(file)
+
+
+for img in imageList:
+    image = PillowImage.open(f"{imageFolder}\{img}")
+
+    XPKeywords = 0x9C9E
+    XPTitle = 0x9C9B
+    exifdata = image.getexif()
     
-PILLOW_TAGS = [
-    271,    # Camera Make
-    272,    # Camera Model
-    36867,  # Date/Time Photo Taken
-    34853,  # GPS Info
-]
+    keywordsNumber = (((img[0] + img[1] + img[2]).replace(" ", "")).replace("(", "")).replace(".", "")
+    keywordsName = f"keywordsDictionary[\"keywords{keywordsNumber}\"]"
+    execString = f"exifdata[XPKeywords] = {keywordsName}.encode(\"utf16\")"
+    exec(execString)
+    exifdata[XPTitle] = " - Generative AI".encode("utf16")
+    print(execString, exportFolder + "\\" + img, exifdata)
 
-EXIF_TAGS = [
-    "make",
-    "model",
-    "datetime_original",
-    "gps_latitude",
-    "gps_latitude_ref",
-    "gps_longitude",
-    "gps_longitude_ref",
-    "gps_altitude",
-]
+    image.save(exportFolder + "\\" + img, exif=exifdata)
 
-for img in imageList:
-    image_path = f"{imageFolder}\{img}"
-    with open(image_path, "rb") as input_file:
-        img = ExifImage(input_file)
-
-    if img.has_exif:
-        for tag in EXIF_TAGS:
-            value = img.get(tag)
-            print(f"{tag}: {value}")
-                 
-PILLOW_TAGS = [
-    315,     # Artist Name
-    33432,   # Copyright Message
-    40094,
-]
-
-EXIF_TAGS = [
-    "artist",
-    "copyright",
-    "XPKeywords",
-]
-
-valueString = "test; test2; test3; test4; test5; test6; test7"
-valueString = valueString.encode(encoding='UTF-16',errors='strict')
-
-VALUES = [
-    "Matthew Gove",    # Artist Name
-    "Copyright 2022 Matthew Gove. All Rights Reserved.",  # Copyright Message
-    valueString
-]
-
-for img in imageList:
-    image_path = f"{imageFolder}\{img}"
-    pillow_image = PillowImage.open(image_path)
-    img_exif = pillow_image.getexif()
-
-    for tag, value in zip(PILLOW_TAGS, VALUES):
-        img_exif[tag] = value
-
-    output_file = img
-    print(output_file, imageFolder)
-    pillow_image.save(exportFolder + "\\" + output_file, exif=img_exif)
