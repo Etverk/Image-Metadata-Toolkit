@@ -12,4 +12,5 @@ data = {"url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Dhaulagiri_m
 response = requests.post(imageUrl, headers=header, json=data)
 responseDict = json.loads(str(response.text))
 responseDescription = responseDict["description"]["captions"][0]["text"]
-print(responseDescription.capitalize() + ".")
+responseTitle = responseDescription.capitalize() + " - Generative AI"
+print(responseTitle)
