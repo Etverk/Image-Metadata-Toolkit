@@ -1,16 +1,33 @@
-import requests
-import json
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
+from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes, Details
+from msrest.authentication import CognitiveServicesCredentials
+
+from array import array
+import os
+from PIL import Image
+import sys
+import time
 
 file = open('./Data.txt')
 content = file.readlines()
-OcpKey = content[7].replace("\n", "")
-imageUrl = content[8].replace("\n", "")
+subscription_key = content[7].replace("\n", "")
+endpoint = content[8].replace("\n", "")
 
-header = {"Ocp-Apim-Subscription-Key": OcpKey}
-data = {"url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Dhaulagiri_mountain.jpg"}
+computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
-response = requests.post(imageUrl, headers=header, json=data)
-responseDict = json.loads(str(response.text))
-responseDescription = responseDict["description"]["captions"][0]["text"]
-responseTitle = responseDescription.capitalize() + " - Generative AI"
-print(responseTitle)
+images_folder = os.path.join (os.path.dirname(os.path.abspath(__file__)), "images")
+
+print("===== Describe an Image - local =====")
+local_image_path = os.path.join (images_folder, "26 (1).jpg")
+local_image = open(local_image_path, "rb")
+
+description_result = computervision_client.describe_image_in_stream(local_image, 10)
+
+print("Description of local image: ")
+if (len(description_result.captions) == 0):
+    print("No description detected.")
+else:
+    for caption in description_result.captions:
+        print(caption.text.capitalize())
+print(description_result.captions)
