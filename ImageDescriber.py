@@ -29,6 +29,8 @@ for file in os.listdir(imageFolder):
     imageList.append(file)
 
 for img in imageList:
+    print(img)
+    
     local_image = open(f"{imageFolder}\{img}", "rb")
     description_result = computervision_client.describe_image_in_stream(local_image, 10)
 

@@ -10,7 +10,7 @@ content = file.readlines()
 
 keywordsDictionary = {}
 for i in range(len(content)):
-    keywordsDictionary[f"keywords{i + 1}"]= content[i].replace("\n", "")
+    keywordsDictionary[f"keywords{i + 1}"] = content[i].replace("\n", "")
 print(keywordsDictionary["keywords1"])
 
 imageList = []
