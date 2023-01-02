@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Image Data Toolkit
 Welcome to the *Image Data Toolkit*! This project is a collection of tools that allow users to edit and manipulate image metadata. With these tools, users can generate keywords for their images, attach those keywords to the EXIF metadata, and even convert between different image formats.
 
@@ -23,7 +25,7 @@ Additionally, it's worth noting that some image file formats do not support the 
 ## License
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2023] [Henrik Mårtensson Etverk]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
