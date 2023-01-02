@@ -12,19 +12,16 @@ from exif import Image as ExifImage
 from PIL import Image as PillowImage
 from PIL import ExifTags
 
-file = open('./Data.txt')
+file = open('./Information.txt')
 content = file.readlines()
-subscription_key = content[7].replace("\n", "")
-endpoint = content[8].replace("\n", "")
+subscription_key = (content[17].replace("\n", "")).replace("Subscription key: ", "")
+endpoint = (content[18].replace("\n", "")).replace("Endpoint: ", "")
+imageFolder = os.path.join (os.path.dirname(os.path.abspath(__file__)), (content[19].replace("\n", "")).replace("Import folder path: ", ""))
+exportFolder = (content[20].replace("\n", "")).replace("Export folder path: ", "")
 
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
 imageList = []
-file = open('./Data.txt')
-content = file.readlines()
-imageFolder = os.path.join (os.path.dirname(os.path.abspath(__file__)), content[9].replace("\n", ""))
-exportFolder = content[10].replace("\n", "")
-
 for file in os.listdir(imageFolder): 
     imageList.append(file)
 
@@ -45,13 +42,3 @@ for img in imageList:
     
     exifdata[XPTitle] = imageDescription.encode("utf16")
     image.save(exportFolder + "\\" + img, exif=exifdata)
-    
-    
-    
-    
-
-
-
-
-
-
