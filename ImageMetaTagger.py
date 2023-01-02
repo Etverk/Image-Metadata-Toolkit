@@ -15,8 +15,8 @@ print(keywordsDictionary["keywords1"])
 imageList = []
 file = open('./Information.txt')
 content = file.readlines()
-imageFolder = (content[7].replace("\n", "")).replace("Import folder: ", "")
-exportFolder = (content[8].replace("\n", "")).replace("Export folder: ", "")
+imageFolder = (content[7].replace("\n", "")).replace("Import folder path: ", "")
+exportFolder = (content[8].replace("\n", "")).replace("Export folder path: ", "")
 
 for file in os.listdir(imageFolder): 
     imageList.append(file)

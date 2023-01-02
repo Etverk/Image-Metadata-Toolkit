@@ -1,14 +1,12 @@
 from PIL import Image 
 import os 
 
-inputFormat = "png"
-outputFormat = "jpg"
-
-file = open('./Data.txt')
+file = open('./Information.txt')
 content = file.readlines()
-inputPath = content[3].replace("\n", "")
-outputPath = content[4].replace("\n", "")
-print(inputPath, outputPath)
+inputFormat = (content[11].replace("\n", "")).replace("Input format: ", "")
+outputFormat = (content[12].replace("\n", "")).replace("Output format: ", "")
+inputPath = (content[13].replace("\n", "")).replace("Import folder path: ", "")
+outputPath = (content[14].replace("\n", "")).replace("Export folder path: ", "")
 
 for file in os.listdir(inputPath): 
     if file.endswith(f".{inputFormat}"): 
