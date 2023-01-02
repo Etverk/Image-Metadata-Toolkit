@@ -39,6 +39,13 @@ You will also need to setup the following:
 * [Adobe Stock API](https://developer.adobe.com/stock/docs/getting-started/): This API is used by KeywordGenerator.js to generate keyword lists.
 * [Microsoft Azure Cognitive Service](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows): This API is used by ImageDescriber.py to describe images with AI.
 
+To install the packages used by Python and JavaScript, run the following commands using [PyPi](https://pypi.org/) and [npm](https://www.npmjs.com/).
+```
+pip install azure-cognitiveservices-vision-computervision msrest Pillow exif
+
+npm i random-words request
+```
+
 ### Environment Variables
 
 ## Running locally
