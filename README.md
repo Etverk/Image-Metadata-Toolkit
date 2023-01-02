@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Image Data Toolkit
-Welcome to the *Image Data Toolkit*! This project is a collection of tools that allow users to edit and manipulate image metadata. With these tools, users can generate keywords for their images, attach those keywords to the EXIF metadata, and even convert between different image formats.
+# Image Metadata Toolkit
+Welcome to the *Image Metadata Toolkit*! This project is a collection of tools that allow users to edit and manipulate image metadata. With these tools, users can generate keywords for their images, attach those keywords to the EXIF metadata, and even convert between different image formats.
 
 **Technologies**\
 This project utilizes a combination of *Python* and *JavaScript* as its primary technologies. In addition to these core technologies, we also integrated the Microsoft Azure API and the Adobe Stock API to enhance the functionality and capabilities of the project. 
