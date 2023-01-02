@@ -1,17 +1,16 @@
 # Image Metadata Toolkit
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents
 - [About](#about)
 - [Getting started](#getting-started)
-    * [Prerequisites](#prerequisites)
-    * [Environment Variables](#environment-variables)
-- [Installation and building](#installation-and-building)
-    * [Keyword Generator](#keyword-generator)
-    * [Image Meta Tagger](#image-meta-tagger)
-    * [Image Format Converter](#image-format-converter)
-    * [Image Describer](#image-describer)
-* [Image Keyword Recognizer](#image-keyword-recognizer)
+  * [Prerequisites](#prerequisites)
+  * [Environment Variables](#environment-variables)
+- [Running locally](#running-locally)
+  * [Keyword Generator](#keyword-generator)
+  * [Image Meta Tagger](#image-meta-tagger)
+  * [Image Format Converter](#image-format-converter)
+  * [Image Describer](#image-describer)
+  * [Image Keyword Recognizer](#image-keyword-recognizer)
 - [License](#license)
 
 ## About
@@ -28,10 +27,21 @@ Additionally, it's worth noting that some image file formats do not support the 
 ## Getting started
 
 ### Prerequisites
+You need to have a machine with Python > 3.10.6 and Node.js > 18.12.1.
+```
+$ python -V
+Python 3.10.6
+
+$ node -v
+v18.12.1
+```
+You will also need to setup the following:
+* [Adobe Stock API](https://developer.adobe.com/stock/docs/getting-started/): This API is used by KeywordGenerator.js to generate keyword lists.
+* [Microsoft Azure Cognitive Service](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows): This API is used by ImageDescriber.py to describe images with AI.
 
 ### Environment Variables
 
-## Installation and building
+## Running locally
 
 ### Keyword Generator
 
