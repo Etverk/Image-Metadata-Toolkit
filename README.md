@@ -11,6 +11,8 @@ During the development of this project, we encountered several challenges. One s
 
 Additionally, it's worth noting that some image file formats do not support the storage of EXIF data. In these cases, it was not possible to edit the EXIF data of an image, regardless of the operating system or software being used.
 
+## Usage
+
 ### Keyword Generator
 
 ### Image Meta Tagger
