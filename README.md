@@ -1,15 +1,20 @@
+# Image Metadata Toolkit
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- [Image Metadata Toolkit](#image-metadata-toolkit)
-  * [Usage](#usage)
-    + [Keyword Generator](#keyword-generator)
-    + [Image Meta Tagger](#image-meta-tagger)
-    + [Image Format Converter](#image-format-converter)
-    + [Image Describer](#image-describer)
-    + [Image Keyword Recognizer](#image-keyword-recognizer)
-  * [License](#license)
+## Table of Contents
+- [About](#about)
+- [Getting started](#getting-started)
+    * [Prerequisites](#prerequisites)
+    * [Environment Variables](#environment-variables)
+- [Installation and building](#installation-and-building)
+    * [Keyword Generator](#keyword-generator)
+    * [Image Meta Tagger](#image-meta-tagger)
+    * [Image Format Converter](#image-format-converter)
+    * [Image Describer](#image-describer)
+* [Image Keyword Recognizer](#image-keyword-recognizer)
+- [License](#license)
 
-# Image Metadata Toolkit
+## About
 Welcome to the *Image Metadata Toolkit*! This project is a collection of tools that allow users to edit and manipulate image metadata. With these tools, users can generate keywords for their images, attach those keywords to the EXIF metadata, and even convert between different image formats.
 
 **Technologies**\
@@ -20,7 +25,13 @@ During the development of this project, we encountered several challenges. One s
 
 Additionally, it's worth noting that some image file formats do not support the storage of EXIF data. In these cases, it was not possible to edit the EXIF data of an image, regardless of the operating system or software being used.
 
-## Usage
+## Getting started
+
+### Prerequisites
+
+### Environment Variables
+
+## Installation and building
 
 ### Keyword Generator
 
