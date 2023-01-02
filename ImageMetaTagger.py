@@ -4,7 +4,6 @@ from PIL import ExifTags
 import os
 import numpy
 
-
 file = open('./FinalKeywordList.txt')
 content = file.readlines()
 
@@ -14,14 +13,13 @@ for i in range(len(content)):
 print(keywordsDictionary["keywords1"])
 
 imageList = []
-file = open('./Data.txt')
+file = open('./Information.txt')
 content = file.readlines()
-imageFolder = content[5].replace("\n", "")
-exportFolder = content[6].replace("\n", "")
+imageFolder = (content[7].replace("\n", "")).replace("Import folder: ", "")
+exportFolder = (content[8].replace("\n", "")).replace("Export folder: ", "")
 
 for file in os.listdir(imageFolder): 
     imageList.append(file)
-
 
 for img in imageList:
     image = PillowImage.open(f"{imageFolder}\{img}")

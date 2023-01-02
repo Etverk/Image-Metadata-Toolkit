@@ -3,12 +3,13 @@ function program() {
     var randomWords = require('random-words');
     var request = require('request');
 
-    function getFirstLine(filePath) {
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
-        return (fileContent.match(/(^.*)/) || [])[1] || '';
-    } 
+    lineArray = []
+    const allFileContents = fs.readFileSync('./Information.txt', 'utf-8');
+    allFileContents.split(/\r?\n/).forEach(line =>  {
+        lineArray.push(line)
+    });
 
-    var apiKey = getFirstLine("./Data.txt")
+    var apiKey = lineArray[4].substring(9)
 
     var headers = {
         'x-api-key': apiKey,
@@ -17,7 +18,7 @@ function program() {
 
     var randomWord = randomWords();
     var options = {
-        url: "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + randomWord + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id",
+        url: "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + "camera equipment" + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id",
         headers: headers
     };
 
@@ -86,7 +87,7 @@ function program() {
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 //async function load () { 
-for (let i = 0; i < 10000; i++) {
+for (let i = 0; i < 7; i++) {
     program();
 
     //await timer(3000); 
