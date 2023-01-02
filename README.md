@@ -24,27 +24,7 @@ During the development of this project, we encountered several challenges. One s
 
 Additionally, it's worth noting that some image file formats do not support the storage of EXIF data. In these cases, it was not possible to edit the EXIF data of an image, regardless of the operating system or software being used.
 
-## Getting started
-
-### Prerequisites
-You need to have a machine with Python > 3.10.6 and Node.js > 18.12.1.
-```
-$ python -V
-Python 3.10.6
-
-$ node -v
-v18.12.1
-```
-You will also need to setup the following:
-* [Adobe Stock API](https://developer.adobe.com/stock/docs/getting-started/): This API is used by KeywordGenerator.js to generate keyword lists.
-* [Microsoft Azure Cognitive Service](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows): This API is used by ImageDescriber.py to describe images with AI.
-
-To install the packages used by Python and JavaScript, run the following commands using [PyPi](https://pypi.org/) and [npm](https://www.npmjs.com/).
-```
-pip install azure-cognitiveservices-vision-computervision msrest Pillow exif
-
-npm i random-words request
-```
+## Toolkit
 
 ### Environment Variables
 
@@ -61,10 +41,35 @@ npm i random-words request
 ### Image Keyword Recognizer
 
 
+## Getting started
+
+### Prerequisites
+You need to have a machine with [Python](https://www.python.org/) > 3.10.6 and [Node.js](https://nodejs.org/en/) > 18.12.1.
+```
+$ python -V
+Python 3.10.6
+
+$ node -v
+v18.12.1
+```
+You will also need to setup the following:
+* [Adobe Stock API](https://developer.adobe.com/stock/docs/getting-started/): This API is used by KeywordGenerator.js to generate keyword lists.
+* [Microsoft Azure Cognitive Service](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows): This API is used by ImageDescriber.py to describe images with AI.
+
+To install the packages used by Python and JavaScript, run the following commands using [PyPi](https://pypi.org/) and [npm](https://www.npmjs.com/).
+```
+pip install azure-cognitiveservices-vision-computervision msrest Pillow exif
+```
+```
+npm i random-words request
+```
+
+
+
 ## License
 MIT License
 
-Copyright (c) [2023] [Henrik Mårtensson Etverk]
+Copyright (c) 2023 Henrik Mårtensson Etverk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
