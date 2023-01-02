@@ -1,0 +1,21 @@
+Information template (My own version)
+Please use the provided template and enter your information, such as your API-keys. The toolkit will automatically import the specified information for use.
+
+KeywordGenerator.js 
+API key: {key}
+
+ImageMetaTagger.py
+Import folder path: {path}
+Export folder path: {path}
+
+ImageFormatConverter.py
+Input format: {format}
+Output format: {format}
+Import folder path: {path}
+Export folder path: {path}
+
+ImageDescriber.py
+Subscription key: {key}
+Endpoint: {endpoint}
+Import folder path: {path}
+Export folder path: {path}
