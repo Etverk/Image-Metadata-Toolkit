@@ -1,5 +1,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+- [Image Metadata Toolkit](#image-metadata-toolkit)
+  * [Usage](#usage)
+    + [Keyword Generator](#keyword-generator)
+    + [Image Meta Tagger](#image-meta-tagger)
+    + [Image Format Converter](#image-format-converter)
+    + [Image Describer](#image-describer)
+    + [Image Keyword Recognizer](#image-keyword-recognizer)
+  * [License](#license)
+
 # Image Metadata Toolkit
 Welcome to the *Image Metadata Toolkit*! This project is a collection of tools that allow users to edit and manipulate image metadata. With these tools, users can generate keywords for their images, attach those keywords to the EXIF metadata, and even convert between different image formats.
 
