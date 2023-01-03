@@ -1,10 +1,11 @@
 from exif import Image as ExifImage
 from PIL import Image as PillowImage
+from dotenv import load_dotenv
 from PIL import ExifTags
 import os
 import numpy
 
-file = open('./FinalKeywordList.txt')
+file = open('./KeywordList.txt')
 content = file.readlines()
 
 keywordsDictionary = {}
@@ -12,12 +13,11 @@ for i in range(len(content)):
     keywordsDictionary[f"keywords{i + 1}"] = content[i].replace("\n", "")
 print(keywordsDictionary["keywords1"])
 
-imageList = []
-file = open('./Information.txt')
-content = file.readlines()
-imageFolder = (content[7].replace("\n", "")).replace("Import folder path: ", "")
-exportFolder = (content[8].replace("\n", "")).replace("Export folder path: ", "")
+load_dotenv() 
+imageFolder = os.getenv("ImageMetaTaggerImportFolder")
+exportFolder = os.getenv("ImageMetaTaggerExportFolder")
 
+imageList = []
 for file in os.listdir(imageFolder): 
     imageList.append(file)
 
@@ -36,4 +36,3 @@ for img in imageList:
     print(execString, exportFolder + "\\" + img, exifdata)
 
     image.save(exportFolder + "\\" + img, exif=exifdata)
-
