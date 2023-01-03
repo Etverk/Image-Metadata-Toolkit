@@ -19,7 +19,7 @@ function program() {
         headers: headers
     };
 
-    if (keyword == "Random" || keyword == "random") {
+    if (keyword == "Random" || keyword == "random" || keyword == "") {
         options.url = "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + randomWord + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id"
     }
 
