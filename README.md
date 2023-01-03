@@ -2,15 +2,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 - [About](#about)
-- [Getting started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Environment Variables](#environment-variables)
-- [Running locally](#running-locally)
+- [Toolkit](#toolkit)
   * [Keyword Generator](#keyword-generator)
   * [Image Meta Tagger](#image-meta-tagger)
   * [Image Format Converter](#image-format-converter)
   * [Image Describer](#image-describer)
-  * [Image Keyword Recognizer](#image-keyword-recognizer)
+- [Getting started](#getting-started)
+  * [Prerequisites](#prerequisites)
+- [Running locally](#running-locally)
+  * [Cloning and downloading](#cloning-and-downloading)
+  * [Configuration](#configuration)
+  * [Function](#function)
+- [Acknowledgments](#acknowledgments)
 - [License](#license)
 
 ## About
@@ -148,7 +151,8 @@ If the paths specified for importing and exporting images are the same, the impo
 
 If the paths specified for importing and exporting images are the same, the imported images will be replaced by the exported images. This program is designed to import the entire contents of a specified folder. It is important to ensure that only images are included in the import folder, as the inclusion of other file types may result in errors.
 
-
+## Acknowledgments
+ - Thanks to GitHub for the [cloning instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ## License
 MIT License
