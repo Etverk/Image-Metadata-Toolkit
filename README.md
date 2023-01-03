@@ -92,6 +92,13 @@ There is a file named ".env.example" with the following structure.
     ImageDescriberExportFolder = {path}
 ```
 
+### Function
+**The Keyword Generator** takes three configuration variables:
+1. AdobeAPIKey = The API key associated with your Adobe Stock API project.
+2. NumberOfIterations = The number of searches for keywords. Each iteration includes approximately 34 keywords.
+3. SearchKeyword = Here the user can specify a specific subject to generate keywords for. Leave it bland or enter "random" in order to generate a random subject.
+The results from this generator will be exported into a file named "KeywordList.txt".
+
 ## License
 MIT License
 
