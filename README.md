@@ -81,6 +81,7 @@ In order to clone or download the repository on your local machine, follow these
 4. Open Git Bash.
 5. Change the current working directory to the location where you want the cloned directory.
 6. Type **git clone**, and then paste the URL you copied earlier.
+
     ```bash
     $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
     ```
