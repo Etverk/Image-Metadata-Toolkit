@@ -1,12 +1,12 @@
 from PIL import Image 
+from dotenv import load_dotenv
 import os 
 
-file = open('./Information.txt')
-content = file.readlines()
-inputFormat = (content[11].replace("\n", "")).replace("Input format: ", "")
-outputFormat = (content[12].replace("\n", "")).replace("Output format: ", "")
-inputPath = (content[13].replace("\n", "")).replace("Import folder path: ", "")
-outputPath = (content[14].replace("\n", "")).replace("Export folder path: ", "")
+load_dotenv() 
+inputFormat = os.getenv("ImageFormatConverterImportFormat")
+outputFormat = os.getenv("ImageFormatConverterExportFormat")
+inputPath = os.getenv("ImageFormatConverterImportFolder")
+outputPath = os.getenv("ImageFormatConverterExportFolder")
 
 for file in os.listdir(inputPath): 
     if file.endswith(f".{inputFormat}"): 

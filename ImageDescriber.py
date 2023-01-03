@@ -3,6 +3,7 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes, Details
 from msrest.authentication import CognitiveServicesCredentials
 
+from dotenv import load_dotenv
 from array import array
 import os
 import sys
@@ -12,12 +13,11 @@ from exif import Image as ExifImage
 from PIL import Image as PillowImage
 from PIL import ExifTags
 
-file = open('./Information.txt')
-content = file.readlines()
-subscription_key = (content[17].replace("\n", "")).replace("Subscription key: ", "")
-endpoint = (content[18].replace("\n", "")).replace("Endpoint: ", "")
-imageFolder = os.path.join (os.path.dirname(os.path.abspath(__file__)), (content[19].replace("\n", "")).replace("Import folder path: ", ""))
-exportFolder = (content[20].replace("\n", "")).replace("Export folder path: ", "")
+load_dotenv() 
+subscription_key = os.getenv("AzureSubscriptionKey")
+endpoint = os.getenv("AzureEndpoint")
+imageFolder= os.getenv("ImageDescriberImportFolder")
+exportFolder = os.getenv("ImageDescriberExportFolder")
 
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
