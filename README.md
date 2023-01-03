@@ -69,7 +69,7 @@ There is a file named ".env.example" with the following structure.
 2. Replace the information in the curly brackets with your own data.
 3. Remove the curly brackets sorrounding the data.
 
-```Shell
+```env
 #KeywordGenerator:
     AdobeAPIKey = {key}
     NumberOfIterations = {num}
