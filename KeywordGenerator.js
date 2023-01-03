@@ -5,7 +5,6 @@ function program() {
     var randomWords = require('random-words');
     var request = require('request');
     
-
     var apiKey = process.env["AdobeAPIKey"]
     var keyword = process.env["SearchKeyword"]
 
@@ -19,6 +18,10 @@ function program() {
         url: "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + keyword + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id",
         headers: headers
     };
+
+    if (keyword == "Random" || keyword == "random") {
+        options.url = "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + randomWord + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id"
+    }
 
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
