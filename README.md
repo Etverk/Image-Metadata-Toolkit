@@ -61,10 +61,36 @@ pip install azure-cognitiveservices-vision-computervision msrest Pillow exif pyt
 npm i random-words request dotenv
 ```
 
-### Environment Variables
-
 ## Running locally
 
+### Configuration
+There is a file named ".env.example" with the following structure.
+1. Locally rename the file from ".env.example" to ".env".
+2. Replace the information in the curly brackets with your own data.
+3. Remove the curly brackets sorrounding the data.
+
+```Shell
+#KeywordGenerator:
+    AdobeAPIKey = {key}
+    NumberOfIterations = {num}
+    SearchKeyword = {keyword}
+
+#ImageMetaTagger:
+    ImageMetaTaggerImportFolder = {path}
+    ImageMetaTaggerExportFolder = {path}
+
+#ImageFormatConverter:
+    ImageFormatConverterImportFormat = {format}
+    ImageFormatConverterExportFormat = {format}
+    ImageFormatConverterImportFolder = {path}
+    ImageFormatConverterExportFolder = {path}
+
+#ImageDescriber:
+    AzureSubscriptionKey = {key}
+    AzureEndpoint = {endpoint}
+    ImageDescriberImportFolder = {path}
+    ImageDescriberExportFolder = {path}
+```
 
 ## License
 MIT License
