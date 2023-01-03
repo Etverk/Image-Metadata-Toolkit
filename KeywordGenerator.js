@@ -7,6 +7,7 @@ function program() {
     
 
     var apiKey = process.env["AdobeAPIKey"]
+    var keyword = process.env["SearchKeyword"]
 
     var headers = {
         'x-api-key': apiKey,
@@ -15,7 +16,7 @@ function program() {
 
     var randomWord = randomWords();
     var options = {
-        url: "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + "camera equipment" + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id",
+        url: "https://stock.adobe.io/Rest/Media/1/Search/Files?locale=en_US&search_parameters%5Bwords%5D=" + keyword + "&result_columns%5B%5D=keywords&result_columns%5B%5D=id",
         headers: headers
     };
 
