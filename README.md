@@ -100,6 +100,36 @@ There is a file named ".env.example" with the following structure.
 
 The results from this generator will be exported into a file named "KeywordList.txt".
 
+---
+
+**[ImageMetaTagger.py](ImageMetaTagger.py)** takes two configuration variables:
+1. ImageMetaTaggerImportFolder = The folder containing the images imported.
+2. ImageMetaTaggerExportFolder = The folder containing the images exported. 
+
+If the paths specified for importing and exporting images are the same, the imported images will be replaced by the exported images. This program is designed to import the entire contents of a specified folder. It is important to ensure that only images are included in the import folder, as the inclusion of other file types may result in errors.
+
+---
+
+**[ImageFormatConverter.py](ImageFormatConverter.py)** takes four configuration variables:
+1. ImageFormatConverterImportFormat = The format of the images imported.
+2. ImageFormatConverterExportFormat = The desired format of the images exported.
+3. ImageFormatConverterImportFolder = The folder containing the images imported.
+4. ImageFormatConverterExportFolder = The folder containing the images exported.
+
+If the paths specified for importing and exporting images are the same, the imported images will be replaced by the exported images. This program is designed to import the entire contents of a specified folder. It is important to ensure that only images are included in the import folder, as the inclusion of other file types may result in errors.
+
+---
+
+**[ImageDescriber.py](ImageDescriber.py)** takes four configuration variables:
+1. AzureSubscriptionKey = The API key associated with your Microsoft Azure Cognitive Service account.
+2. AzureEndpoint = The endpoint associated with your Microsoft Azure Cognitive Service account.
+3. ImageDescriberImportFolder = The folder containing the images imported.
+4. ImageDescriberExportFolder = The folder containing the images exported.
+
+If the paths specified for importing and exporting images are the same, the imported images will be replaced by the exported images. This program is designed to import the entire contents of a specified folder. It is important to ensure that only images are included in the import folder, as the inclusion of other file types may result in errors.
+
+
+
 ## License
 MIT License
 
