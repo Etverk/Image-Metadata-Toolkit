@@ -26,10 +26,6 @@ Additionally, it's worth noting that some image file formats do not support the 
 
 ## Toolkit
 
-### Environment Variables
-
-## Running locally
-
 ### Keyword Generator
 
 ### Image Meta Tagger
@@ -37,8 +33,6 @@ Additionally, it's worth noting that some image file formats do not support the 
 ### Image Format Converter
 
 ### Image Describer
-
-### Image Keyword Recognizer
 
 
 ## Getting started
@@ -58,12 +52,15 @@ You will also need to setup the following:
 
 To install the packages used by Python and JavaScript, run the following commands using [PyPi](https://pypi.org/) and [npm](https://www.npmjs.com/).
 ```
-pip install azure-cognitiveservices-vision-computervision msrest Pillow exif
+pip install azure-cognitiveservices-vision-computervision msrest Pillow exif python-dotenv
 ```
 ```
-npm i random-words request
+npm i random-words request dotenv
 ```
 
+### Environment Variables
+
+## Running locally
 
 
 ## License

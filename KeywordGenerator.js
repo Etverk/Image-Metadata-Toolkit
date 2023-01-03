@@ -1,15 +1,12 @@
+require('dotenv').config()
+
 function program() {
     const fs = require("fs");
     var randomWords = require('random-words');
     var request = require('request');
+    
 
-    lineArray = []
-    const allFileContents = fs.readFileSync('./Information.txt', 'utf-8');
-    allFileContents.split(/\r?\n/).forEach(line =>  {
-        lineArray.push(line)
-    });
-
-    var apiKey = lineArray[4].substring(9)
+    var apiKey = process.env["AdobeAPIKey"]
 
     var headers = {
         'x-api-key': apiKey,
@@ -87,11 +84,12 @@ function program() {
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 //async function load () { 
-for (let i = 0; i < 7; i++) {
+for (let i = 0; i < process.env["NumberOfIterations"]; i++) {
     program();
 
     //await timer(3000); 
     }
 //}
+console.log(process.env["NumberOfIterations"])
 
 //load();
