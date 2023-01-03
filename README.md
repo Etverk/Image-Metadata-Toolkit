@@ -63,6 +63,26 @@ npm i random-words request dotenv
 
 ## Running locally
 
+### Cloning and downloading
+In order to clone or download the repository on your local machine, follow these steps.
+1. Navigate to the main page of the [repository](https://github.com/Etverk/Image-Metadata-Toolkit).
+2. Above the list of files, click "Code".
+
+  ![Code box](https://docs.github.com/assets/cb-20363/images/help/repository/code-button.png)
+
+3. Copy the HTTPS url. 
+  - Alternatively, click "Download ZIP" to download the repository directly.
+
+  ![Clone options](https://docs.github.com/assets/cb-33207/images/help/repository/https-url-clone-cli.png)
+
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type **git clone**, and then paste the URL you copied earlier.
+  ```bash
+  $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+  ```
+7. Press **Enter** to create your local clone.
+
 ### Configuration
 There is a file named ".env.example" with the following structure.
 1. Locally rename the file from ".env.example" to ".env".
