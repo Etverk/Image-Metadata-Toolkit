@@ -29,16 +29,19 @@ for img in imageList:
     print(img)
     
     local_image = open(f"{imageFolder}\{img}", "rb")
-    description_result = computervision_client.describe_image_in_stream(local_image, 10)
+    try:
+        description_result = computervision_client.describe_image_in_stream(local_image, 10)
 
-    if (len(description_result.captions) == 0):
-        print(f"No description detected for {img}.")
-    else:
-        imageDescription = description_result.captions[0].text.capitalize() + " - Generative AI"
-    
-    image = PillowImage.open(f"{imageFolder}\{img}")
-    XPTitle = 0x9C9B
-    exifdata = image.getexif()
-    
-    exifdata[XPTitle] = imageDescription.encode("utf16")
-    image.save(exportFolder + "\\" + img, exif=exifdata)
+        if (len(description_result.captions) == 0):
+            print(f"No description detected for {img}.")
+        else:
+            imageDescription = description_result.captions[0].text.capitalize() + " - Generative AI"
+        
+        image = PillowImage.open(f"{imageFolder}\{img}")
+        XPTitle = 0x9C9B
+        exifdata = image.getexif()
+        
+        exifdata[XPTitle] = imageDescription.encode("utf16")
+        image.save(exportFolder + "\\" + img, exif=exifdata)
+    except:
+        print("An exception occurred")
