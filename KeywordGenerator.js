@@ -27,7 +27,6 @@ function program() {
         if (!error && response.statusCode == 200) {
             
             const obj = JSON.parse(body)
-            
             for (let y = 0; y < obj.files.length; y++) {
 
                 fs.appendFileSync("./KeywordList.txt", "Generative AI; Generative; AI; ", (err) => {
