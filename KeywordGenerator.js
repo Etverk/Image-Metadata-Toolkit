@@ -7,6 +7,7 @@ function program() {
     
     var apiKey = process.env["AdobeAPIKey"]
     var keyword = process.env["SearchKeyword"]
+    var leastNumOfKeywords = process.env["LeastNumOfKeywords"]
 
     var headers = {
         'x-api-key': apiKey,
@@ -29,54 +30,72 @@ function program() {
             const obj = JSON.parse(body)
             for (let y = 0; y < obj.files.length; y++) {
 
-                fs.appendFileSync("./KeywordList.txt", "Generative AI; Generative; AI; ", (err) => {
-                    if (err) {
-                        console.error(err);
-                    return;
-                    }
-                })
+                var flag = false;
+                if (obj.files[y].keywords.length < leastNumOfKeywords) {
+                    var flag = true;
+                }
 
                 for (let i = 0; i < obj.files[y].keywords.length; i++) {
-                    fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + "; ", (err) => {
+                    if (isNaN(obj.files[y].keywords[i]["name"]) == false) {
+                        var flag = true;
+                        console.log(obj.files[y].keywords[i]["name"])
+                    }
+                }
+
+                console.log(flag)
+                if (flag == false) {
+                    var flag = true;
+                    console.log(obj.files[y].keywords.length)
+
+                    fs.appendFileSync("./KeywordList.txt", "Generative AI; Generative; AI; ", (err) => {
+                        if (err) {
+                            console.error(err);
+                        return;
+                        }
+                    })
+
+                    for (let i = 0; i < obj.files[y].keywords.length; i++) {
+                        fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + "; ", (err) => {
+                            if (err) {
+                                console.error(err);
+                            return;
+                            }
+                        })
+                        
+                        console.log(obj.files[y].keywords[i].name, i)
+                    }
+
+                    fs.appendFileSync("./KeywordList.txt", "\r\n", (err) => {
+                        if (err) {
+                            console.error(err);
+                        return;
+                        }
+                    })
+
+                    fs.appendFileSync("./KeywordList.txt", "/imagine prompt: ", (err) => {
                         if (err) {
                             console.error(err);
                         return;
                         }
                     })
                     
-                    console.log(obj.files[y].keywords[i].name, i)
-                }
-
-                fs.appendFileSync("./KeywordList.txt", "\r\n", (err) => {
-                    if (err) {
-                        console.error(err);
-                    return;
+                    for (let i = 0; i < obj.files[y].keywords.length; i++) {
+                        fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + " ", (err) => {
+                            if (err) {
+                                console.error(err);
+                            return;
+                            }
+                        })
+                        
                     }
-                })
 
-                fs.appendFileSync("./KeywordList.txt", "/imagine prompt: ", (err) => {
-                    if (err) {
-                        console.error(err);
-                    return;
-                    }
-                })
-                
-                for (let i = 0; i < obj.files[y].keywords.length; i++) {
-                    fs.appendFileSync("./KeywordList.txt", obj.files[y].keywords[i].name + " ", (err) => {
+                    fs.appendFileSync("./KeywordList.txt", "realistic high quality detailed --v 4 --ar 3:2\r\n", (err) => {
                         if (err) {
                             console.error(err);
                         return;
                         }
                     })
-                    
                 }
-
-                fs.appendFileSync("./KeywordList.txt", "realistic high quality detailed --v 4 --ar 3:2\r\n", (err) => {
-                    if (err) {
-                        console.error(err);
-                    return;
-                    }
-                })
             }
         } 
     }
